@@ -6,7 +6,13 @@ archivo = 'videos.txt'
 carpeta_destino = 'mp3'
 opciones = {
     'format': 'bestaudio',
-    'outtmpl': os.path.join(carpeta_destino, '%(title)s.mp3')
+    'outtmpl': os.path.join(carpeta_destino, '%(title)s.mp3'),
+    'ignoreerrors': True,
+    'postprocessors': [{
+        'key': 'FFmpegExtractAudio',
+        'preferredcodec': 'mp3',
+        'preferredquality': 192
+    }]
 }
 
 
