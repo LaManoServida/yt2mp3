@@ -15,9 +15,10 @@ opciones = {
     }]
 }
 
+youtube_dl = yt_dlp.YoutubeDL(opciones)
 
 with open(archivo, 'r') as f:
-    lista = [url for url in f.read().splitlines() if url]
-
-yt_dlp.YoutubeDL(opciones).download(lista)
+    for url in f:
+        if url.strip():
+            youtube_dl.download([url.strip()])
 
